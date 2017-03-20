@@ -1,5 +1,5 @@
 angular.module('cardapioADSApp')
 
-.controller('loginCtrl',function() {
+.controller('loginCtrl',function($scope) {
 
 });
