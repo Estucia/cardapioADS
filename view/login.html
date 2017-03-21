@@ -20,11 +20,11 @@
             <!--Formulario de login-->
             <form class="form-login">
                 <fieldset class="form-group">
-                    <input class="form-control" type="text" placeholder="Login" />
-                    <input class="form-control" type="password" placeholder="Senha" />
+                    <input ng-model="usuario.login" class="form-control" type="text" placeholder="Login" />
+                    <input ng-model="usuario.senha" class="form-control" type="password" placeholder="Senha" />
                 </fieldset>
                 <fieldset>
-                    <button class="btn btn-primary btn-block">Acessar</button>
+                    <button ng-disabled="!usuario.login || !usuario.senha" class="btn btn-primary btn-block" ng-click="acessarSistema(usuario)" >Acessar</button>
                 </fieldset>
             </form>
         </div>
