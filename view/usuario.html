@@ -1,1 +1,102 @@
 <navegacao></navegacao>
+
+<div class="container app-container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Usuario
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="Pesquisa">
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Excluir
+                    </button>
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-pencil"><span>
+                        Editar
+                    </button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#cadastroUsuariosModal">
+                        <span class="glyphicon glyphicon-plus"><span>
+                        Incluir
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Login</th>
+                    <th>Logado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in listaUsuarios">
+                    <td>{{user.id}}</td>
+                    <td>{{user.nome}}</td>
+                    <td>{{user.login}}</td>
+                    <td>Não</td>    
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="cadastroUsuariosModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title">Cadastro de Usuário</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input ng-model="usuario.id" type="number" class="form-control" placeholder="Código" disabled/>
+                        </div>
+                        <div class="col-sm-9">
+                            <input ng-model="usuario.nome" type="text" class="form-control" placeholder="Nome" />
+                        </div>
+                    </div>
+                    <div class="row form-row">
+                        <div class="col-sm-6">
+                            <input ng-model="usuario.login" type="text" class="form-control" placeholder="Login" />
+                        </div>
+                        <div class="col-sm-6">
+                            <input ng-model="usuario.senha" type="password" class="form-control" placeholder="Senha" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-ban-circle"><span>
+                    Cancelar
+                </button>
+                <button class="btn btn-primary" ng-click="salvar(usuario)">
+                    <span class="glyphicon glyphicon-ok"><span>
+                    Salvar
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

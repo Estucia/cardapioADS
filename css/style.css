@@ -1,11 +1,12 @@
 .container-login {
     margin-top: 100px;
-
-}
-
-.container {
     max-width: 600px;
+
 }
+
+/*.container {
+    max-width: 100%;
+}*/
 
 .form-login {
     margin-top: 30px;
@@ -21,3 +22,16 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.app-container{
+    margin-top: 70px;
+}
+.panel{
+    margin-top: 90px;
+
+}
+
+.form-row{
+    margin-top: 10px;
+}
+
