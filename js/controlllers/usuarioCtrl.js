@@ -1,6 +1,6 @@
 angular.module('cardapioADSApp')
 
-.controller('usuarioCtrl',function($scope) {
+.controller('usuarioCtrl',function($scope, $http) {
 
     $scope.usuario = {
         id: null,
@@ -11,10 +11,16 @@ angular.module('cardapioADSApp')
 
     $scope.listaUsuarios = [];
 
-    $scope.salvar = function(usuarioCadastrado){
-        $scope.listaUsuarios.push(usuarioCadastrado);
-        delete $scope.usuario;
-        $('#cadastroUsuariosModal').modal('hide');
+    $scope.salvar = function(usuario){
+        $http.post('http://localhost:8080/CardapioADS/webservice/usuario/salvar',usuario)
+            .then(function(response){
+                $scope.listaUsuarios.push(response.data);
+
+                delete $scope.usuario;
+                $('#cadastroUsuariosModal').modal('hide');    
+            }, function(error){
+                console.log(error);
+            });
     }
 
 });
