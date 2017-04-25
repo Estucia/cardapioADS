@@ -41,7 +41,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="user in listaUsuarios">
-                    <td>{{user.id}}</td>
+                    <td>{{user.idUsuario}}</td>
                     <td>{{user.nome}}</td>
                     <td>{{user.login}}</td>
                     <td>Não</td>    
@@ -67,7 +67,7 @@
                 <form class="form-group">
                     <div class="row">
                         <div class="col-sm-3">
-                            <input ng-model="usuario.id" type="number" class="form-control" placeholder="Código" disabled/>
+                            <input ng-model="usuario.idUsuario" type="number" class="form-control" placeholder="Código" disabled/>
                         </div>
                         <div class="col-sm-9">
                             <input ng-model="usuario.nome" type="text" class="form-control" placeholder="Nome" />

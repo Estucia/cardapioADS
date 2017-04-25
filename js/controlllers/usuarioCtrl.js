@@ -3,10 +3,11 @@ angular.module('cardapioADSApp')
 .controller('usuarioCtrl',function($scope, $http) {
 
     $scope.usuario = {
-        id: null,
+        idUsuario: null,
         nome: null,
         login: null,
-        senha: null
+        senha: null,
+        logado: false
     }
 
     $scope.listaUsuarios = [];
