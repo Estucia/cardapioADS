@@ -9,26 +9,26 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="\"Usuario\"")
-@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
+@Table(name="usuario")
+@NamedQuery(name="usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="\"idUsuario\"")
+	@Column(name="idusuario")
 	private Long idUsuario;
 
-	@Column(name="\"Logado\"")
+	@Column(name="logado")
 	private Boolean logado;
 
-	@Column(name="\"Login\"")
+	@Column(name="login")
 	private String login;
 
-	@Column(name="\"Nome\"")
+	@Column(name="nome")
 	private String nome;
 
-	@Column(name="\"Senha\"")
+	@Column(name="senha")
 	private String senha;
 
 	public Usuario() {
