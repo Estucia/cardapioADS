@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import br.fadep.cardapioads.models.Usuario;
+import sun.security.pkcs11.Secmod.DbMode;
 
 @Stateless
 public class UsuarioCtrl implements UsuarioCtrlInterface {
@@ -33,5 +35,31 @@ public class UsuarioCtrl implements UsuarioCtrlInterface {
 		} catch (Exception e) {
 			throw e;
 		}
+	}
+	
+	
+	public Usuario login(Usuario usuario) throws Exception{
+		try {
+			Query query = bdManager.createQuery("FROM Usuario u WHERE u.login = :login and u.senha = :senha");
+			query.setParameter("login", usuario.getLogin());
+			query.setParameter("senha", usuario.getSenha());
+			Usuario usuarioRetorno = (Usuario) query.getSingleResult();
+			return usuarioRetorno;
+		} catch (NoResultException ex){	
+			return null;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	
+	public void excluir(int idUsuario) throws Exception{
+		try {
+			Usuario usuario = bdManager.find(Usuario.class, idUsuario);
+			bdManager.remove(usuario);
+		} catch (Exception e) {
+			throw e;
+		}
+		
 	}
 }

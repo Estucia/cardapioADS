@@ -17,6 +17,7 @@ angular.module('cardapioADSApp')
     }
 
     $scope.salvar = function(usuario){
+        usuario.logado = false;
         $http.post('http://localhost:8080/CardapioADS/webservice/usuario/salvar',usuario)
             .then(function(response){
                 $scope.listaUsuarios.push(response.data);
@@ -31,7 +32,7 @@ angular.module('cardapioADSApp')
     $scope.getTodos = function(){
         $http.get('http://localhost:8080/CardapioADS/webservice/usuario/getTodos')
             .then(function(response){
-                $scope.listaUsuarios.push(response.data);
+                $scope.listaUsuarios = response.data;
             }, function(error){
                 console.log(error);
             });

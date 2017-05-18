@@ -13,4 +13,8 @@ public interface UsuarioCtrlInterface {
 	
 	public List<Usuario> getTodos() throws Exception;
 	
+	public Usuario login(Usuario usuario) throws Exception;
+	
+	public void excluir(int idUsuario) throws Exception;
+	
 }

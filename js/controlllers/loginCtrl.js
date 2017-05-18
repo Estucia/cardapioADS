@@ -1,30 +1,24 @@
 angular.module('cardapioADSApp')
 
-.controller('loginCtrl',function($scope, $location) {
+.controller('loginCtrl',function($scope, $location,loginService) {
 
     $scope.usuario = {
         login: null,
         senha: null
     }
 
-    var usuario = {
-        login: 'admin',
-        senha: 'admin'
-    }
-
     $scope.acessarSistema = function(usuarioInformado) {
-        if (usuarioInformado.login == usuario.login) {
-            if (usuarioInformado.senha == usuario.senha){
-                console.log('Login efetuado com sucesso!');
-                $location.path('/home');
-            }
-            else {
-                console.log('Senha errada!');
-            }
-        }
-        else {
-            console.log('Usuario inexistente!');
-        }
-    }
+        loginService.login(usuarioInformado)
+            .then(function(response){
+                if (response.data){
+                    console.log('Login efetuado com sucesso!');
+                    $location.path('/home');
+                } else {
+                    alert('login inválido!')
+                }
+            },function(error){
+                console.log(error);
+            });
 
+    }
 });
